@@ -1,6 +1,15 @@
 pub fn running_sum(nums: Vec<i32>) -> Vec<i32> {
-    vec![42]
+    let mut res: Vec<i32> = (0..nums.len() as i32).collect();
+    let mut sum = 0;
+
+    for i in 0..res.len() {
+      sum = sum + nums[i];
+      res[i] = sum;
+    }
+
+    res
 }
+
 
 
 #[cfg(test)]
