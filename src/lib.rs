@@ -8,5 +8,6 @@ mod reduce_to_zero;
 mod running_sum_of_1d_array;
 mod shuffle_string;
 mod shuffle_the_array;
+mod smaller_numbers_than_current;
 mod subtract;
 mod two_sum;
