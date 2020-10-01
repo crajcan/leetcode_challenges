@@ -1,5 +1,6 @@
 #![allow(dead_code)]
 
+mod decompress_rl_elist;
 mod defang_ip;
 mod identical_pairs;
 mod jewels_and_stones;
