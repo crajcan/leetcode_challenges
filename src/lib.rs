@@ -1,5 +1,6 @@
 #![allow(dead_code)]
 
+mod balanced_string_split;
 mod create_target_array;
 mod decompress_rl_elist;
 mod defang_ip;
