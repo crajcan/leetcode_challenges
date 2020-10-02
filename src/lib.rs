@@ -14,3 +14,4 @@ mod smaller_numbers_than_current;
 mod subtract;
 mod subtract_product_and_sum;
 mod two_sum;
+mod xor_operation;
