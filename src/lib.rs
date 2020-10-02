@@ -1,5 +1,6 @@
 #![allow(dead_code)]
 
+mod create_target_array;
 mod decompress_rl_elist;
 mod defang_ip;
 mod identical_pairs;
