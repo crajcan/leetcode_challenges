@@ -52,19 +52,20 @@ mod test {
     use super::*;
 
     #[test]
-    fn test_insert() {
+    fn test_insert_left() {
         let left = Some(Rc::new(RefCell::new(TreeNode::new(5))));
         let mut root_node = TreeNode::new(10);
         root_node.left = left;
  
         let root = Some(Rc::new(RefCell::new(root_node)));
 
-        println!("root: {:?}", root);
         let actual = TreeNode::insert(Some(Rc::new(RefCell::new(TreeNode::new(10)))), 5);
-        println!("actual: {:?}", actual);
          
         assert_eq!(actual, root);
-/*
+    }
+
+    #[test]
+    fn test_insert_right() {
         let right = Some(Rc::new(RefCell::new(TreeNode::new(15))));
         let mut root_node = TreeNode::new(10);
         root_node.right = right;
@@ -72,7 +73,21 @@ mod test {
         let root = Some(Rc::new(RefCell::new(root_node)));
          
         assert_eq!(TreeNode::insert(Some(Rc::new(RefCell::new(TreeNode::new(10)))), 15), root);
-*/
+    }
+
+    #[test]
+    fn test_insert_lower() {
+        let grandchild = Some(Rc::new(RefCell::new(TreeNode::new(13))));
+        let mut child_node = TreeNode::new(10);
+        child_node.right = grandchild;
+ 
+        let child = Some(Rc::new(RefCell::new(child_node)));
+        let mut root_node = TreeNode::new(15);
+        root_node.left = child;
+
+        let root = Some(Rc::new(RefCell::new(root_node)));
+         
+        assert_eq!(TreeNode::insert(TreeNode::insert(Some(Rc::new(RefCell::new(TreeNode::new(15)))), 10), 13),root)
     }
 }
 
