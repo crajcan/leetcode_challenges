@@ -14,26 +14,23 @@ impl ParkingSystem {
         }
     }
 
+    fn add_car_of_level(spaces: &mut i32) -> bool {
+        match *spaces {
+            0 => false,
+            _ => {
+                *spaces -= 1;
+                true
+            }
+        } 
+    }
+
     pub fn add_car(&mut self, car_type: i32) -> bool {
-        let spaces = match car_type {
-            1 => self.big,
-            2 => self.medium,
-            3 => self.small,
-            _ => panic!("invalid car type"),
-        };
-
-        if spaces == 0 {
-            return false;
-        };
-
         match car_type {
-            1 => self.big -= 1,
-            2 => self.medium -= 1,
-            3 => self.small -= 1,
+            1 => Self::add_car_of_level(&mut self.big),
+            2 => Self::add_car_of_level(&mut self.medium),
+            3 => Self::add_car_of_level(&mut self.small),
             _ => panic!("invalid car type"),
-        };
-
-        true
+        }
     }
 }
 
