@@ -49,16 +49,12 @@ pub fn range_sum_bst(root: Option<Rc<RefCell<TreeNode>>>, l: i32, r: i32) -> i32
         None => 0,
         Some(ptr) => {
             let val = ptr.borrow().val.clone();
+            let left = ptr.borrow().left.clone();
+            let right = ptr.borrow().right.clone();
 
             match (l <= val, r >= val) {
-                (true, true) => {
-                    val + range_sum_bst(ptr.borrow().left.clone(), l, r)
-                        + range_sum_bst(ptr.borrow().right.clone(), l, r)
-                }
-                _ => {
-                    range_sum_bst(ptr.borrow().left.clone(), l, r)
-                        + range_sum_bst(ptr.borrow().right.clone(), l, r)
-                }
+                (true, true) => val + range_sum_bst(left, l, r) + range_sum_bst(right, l, r),
+                _ => range_sum_bst(left, l, r) + range_sum_bst(right, l, r),
             }
         }
     }
