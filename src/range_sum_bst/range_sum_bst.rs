@@ -1,3 +1,6 @@
+use std::cell::RefCell;
+use std::rc::Rc;
+
 //Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
 pub struct TreeNode {
@@ -23,7 +26,7 @@ impl TreeNode {
         match root {
             None => Some(Rc::new(RefCell::new(TreeNode::new(new_val)))),
             Some(ptr) => {
-                let val = ptr.borrow().val.clone();
+                let val = ptr.borrow().val;
 
                 match new_val < val {
                     true => {
@@ -41,13 +44,25 @@ impl TreeNode {
     }
 }
 
-use std::cell::RefCell;
-use std::rc::Rc;
-/*
 pub fn range_sum_bst(root: Option<Rc<RefCell<TreeNode>>>, l: i32, r: i32) -> i32 {
-    32
+    match root {
+        None => 0,
+        Some(ptr) => {
+            let val = ptr.borrow().val.clone();
+
+            match (l <= val, r >= val) {
+                (true, true) => {
+                    val + range_sum_bst(ptr.borrow().left.clone(), l, r)
+                        + range_sum_bst(ptr.borrow().right.clone(), l, r)
+                }
+                _ => {
+                    range_sum_bst(ptr.borrow().left.clone(), l, r)
+                        + range_sum_bst(ptr.borrow().right.clone(), l, r)
+                }
+            }
+        }
+    }
 }
-*/
 
 #[cfg(test)]
 mod test {
@@ -100,11 +115,20 @@ mod test {
             root
         )
     }
-}
 
-/*
     #[test]
     fn test_range_sum_bst() {
-        assert_eq!(range_sum_bst(root, 7, 15), 32);
+        let root = None;
+        let tree = vec![10, 5, 15, 3, 7, 18]
+            .iter()
+            .fold(root, |r, val| TreeNode::insert(r, *val));
+
+        assert_eq!(range_sum_bst(tree.clone(), 7, 15), 32);
+
+        let next_tree = vec![1, 6]
+            .iter()
+            .fold(tree, |t, val| TreeNode::insert(t, *val));
+
+        assert_eq!(range_sum_bst(next_tree, 6, 10), 23);
     }
-*/
+}
