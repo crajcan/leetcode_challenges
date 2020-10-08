@@ -21,7 +21,7 @@ impl ParkingSystem {
                 *spaces -= 1;
                 true
             }
-        } 
+        }
     }
 
     pub fn add_car(&mut self, car_type: i32) -> bool {

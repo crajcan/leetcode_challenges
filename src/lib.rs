@@ -16,5 +16,6 @@ mod shuffle_the_array;
 mod smaller_numbers_than_current;
 mod subtract;
 mod subtract_product_and_sum;
+mod sum_odd_length_subarrays;
 mod two_sum;
 mod xor_operation;
