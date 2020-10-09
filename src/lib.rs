@@ -7,6 +7,7 @@ mod defang_ip;
 mod identical_pairs;
 mod jewels_and_stones;
 mod kids_with_candies;
+mod linked_list_binary_to_decimal;
 mod parking_system;
 mod range_sum_bst;
 mod reduce_to_zero;
