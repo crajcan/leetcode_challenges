@@ -4,6 +4,7 @@ mod balanced_string_split;
 mod create_target_array;
 mod decompress_rl_elist;
 mod defang_ip;
+mod find_numbers_with_even_length;
 mod identical_pairs;
 mod jewels_and_stones;
 mod kids_with_candies;
