@@ -15,6 +15,7 @@ mod min_time_to_visit_all_points;
 mod parking_system;
 mod range_sum_bst;
 mod reduce_to_zero;
+mod remove_outer_parentheses;
 mod running_sum_of_1d_array;
 mod shuffle_string;
 mod shuffle_the_array;
