@@ -9,10 +9,10 @@ pub fn remove_outer_parentheses(s: String) -> String {
         if c == '(' {
             context += 1;
         } else {
-            context -=1;
+            context -= 1;
         }
     }
-   
+
     result
 }
 
@@ -23,7 +23,13 @@ mod test {
     #[test]
     fn test_remove_outer_parentheses() {
         assert_eq!(remove_outer_parentheses("()()".to_string()), "".to_string());
-        assert_eq!(remove_outer_parentheses("(()())(())".to_string()), "()()()".to_string());
-        assert_eq!(remove_outer_parentheses("(()())(())(()(()))".to_string()), "()()()()(())".to_string());
+        assert_eq!(
+            remove_outer_parentheses("(()())(())".to_string()),
+            "()()()".to_string()
+        );
+        assert_eq!(
+            remove_outer_parentheses("(()())(())(()(()))".to_string()),
+            "()()()()(())".to_string()
+        );
     }
 }

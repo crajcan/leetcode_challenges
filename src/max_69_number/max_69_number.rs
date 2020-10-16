@@ -1,17 +1,20 @@
-
 pub fn max_69_number(num: i32) -> i32 {
-    let mut seen_6 = false; 
+    let mut seen_6 = false;
 
-    num.to_string().chars().fold(String::new(), |mut res, c| {
-       if !seen_6 && c == '6' {
-         res.push('9');
-         seen_6 = true;
-       } else {
-         res.push(c);
-       }
+    num.to_string()
+        .chars()
+        .fold(String::new(), |mut res, c| {
+            if !seen_6 && c == '6' {
+                res.push('9');
+                seen_6 = true;
+            } else {
+                res.push(c);
+            }
 
-       res
-    }).parse().unwrap()
+            res
+        })
+        .parse()
+        .unwrap()
 }
 
 #[cfg(test)]
