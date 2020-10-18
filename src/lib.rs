@@ -13,6 +13,7 @@ mod kids_with_candies;
 mod linked_list_binary_to_decimal;
 mod max_69_number;
 mod min_time_to_visit_all_points;
+mod morse_code;
 mod odd_cells;
 mod parking_system;
 mod range_sum_bst;
