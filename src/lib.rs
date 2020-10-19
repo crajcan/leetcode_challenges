@@ -1,6 +1,7 @@
 #![allow(dead_code)]
 
 mod balanced_string_split;
+mod busy_student;
 mod count_good_triplets;
 mod create_target_array;
 mod decompress_rl_elist;
