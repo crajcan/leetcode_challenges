@@ -8,6 +8,7 @@ mod decompress_rl_elist;
 mod defang_ip;
 mod diagonal_sum;
 mod find_numbers_with_even_length;
+mod freq_alphabets;
 mod identical_pairs;
 mod jewels_and_stones;
 mod kids_with_candies;
