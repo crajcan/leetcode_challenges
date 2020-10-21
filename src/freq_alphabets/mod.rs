@@ -1,3 +1,5 @@
+use std::str;
+
 fn translate(s: &str) -> char {
     (96 + s.parse::<u8>().unwrap()) as char
 }
@@ -10,11 +12,10 @@ pub fn freq_alphabets(s: String) -> String {
     while i >= 0 {
         match bytes[i as usize] as char {
             '#' => {
-                let mut sub = String::new();
-                sub.push(bytes[(i - 2) as usize] as char);
-                sub.push(bytes[(i - 1) as usize] as char);
-
-                result.insert(0, translate(&sub));
+                result.insert(
+                    0,
+                    translate(std::str::from_utf8(&bytes[(i - 2) as usize..i as usize]).unwrap()),
+                );
                 i -= 3;
             }
             _ => {

@@ -6,6 +6,7 @@ mod count_good_triplets;
 mod create_target_array;
 mod decompress_rl_elist;
 mod defang_ip;
+mod destination_city;
 mod diagonal_sum;
 mod find_numbers_with_even_length;
 mod freq_alphabets;
