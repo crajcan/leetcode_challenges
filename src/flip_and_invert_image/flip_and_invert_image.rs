@@ -2,9 +2,10 @@ pub fn flip_and_invert_image(a: Vec<Vec<i32>>) -> Vec<Vec<i32>> {
     a.iter().fold([].to_vec(), |rows, row| {
         [
             rows,
-            vec![row.iter().rev().fold([].to_vec(), |elems, elem| {
-                [elems, vec![elem ^ 1]].concat()
-            })],
+            vec![row
+                .iter()
+                .rev()
+                .fold([].to_vec(), |elems, elem| [elems, vec![elem ^ 1]].concat())],
         ]
         .concat()
     })
