@@ -11,6 +11,7 @@ mod diagonal_sum;
 mod find_numbers_with_even_length;
 mod flip_and_invert_image;
 mod freq_alphabets;
+mod generate_the_string;
 mod identical_pairs;
 mod jewels_and_stones;
 mod kids_with_candies;
