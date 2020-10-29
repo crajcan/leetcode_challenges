@@ -3,6 +3,7 @@
 mod balanced_string_split;
 mod busy_student;
 mod count_good_triplets;
+mod count_negatives;
 mod create_target_array;
 mod decompress_rl_elist;
 mod defang_ip;
