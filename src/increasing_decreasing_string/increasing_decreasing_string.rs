@@ -1,4 +1,4 @@
-pub fn smallest_larger_than(c: char, s: String) -> Option<(usize, char)> {
+pub fn smallest_larger_than(c: char, s: &str) -> Option<(usize, char)> {
     let mut result: Option<(usize, char)> = None;
 
     for (i, x) in s.chars().enumerate() {
@@ -9,7 +9,7 @@ pub fn smallest_larger_than(c: char, s: String) -> Option<(usize, char)> {
                 } else {
                     None
                 }
-            },
+            }
             Some((result_index, result_char)) => {
                 if x < result_char && x > c {
                     Some((i, x))
@@ -23,15 +23,64 @@ pub fn smallest_larger_than(c: char, s: String) -> Option<(usize, char)> {
     result
 }
 
-pub fn largest_smaller_than(c: char, s: String) -> Option<(usize, char)> {
-    Some((0, 'a'))
+pub fn largest_smaller_than(c: char, s: &str) -> Option<(usize, char)> {
+    let mut result: Option<(usize, char)> = None;
+
+    for (i, x) in s.chars().enumerate() {
+        result = match result {
+            None => {
+                if x < c {
+                    Some((i, x))
+                } else {
+                    None
+                }
+            }
+            Some((result_index, result_char)) => {
+                if x > result_char && x < c {
+                    Some((i, x))
+                } else {
+                    Some((result_index, result_char))
+                }
+            }
+        }
+    }
+
+    result
 }
 
-/*
-pub fn sort_string(s: String) -> String {
-    "rat".to_string()
+pub fn sort_string(mut s: String) -> String {
+    let mut result: String = "".to_string();
+
+    loop {
+        match smallest_larger_than('`', &s) {
+            None => break,
+            Some((i, min)) => {
+                s.remove(i);
+                result.push(min)
+            }
+        }
+
+        while let Some((i, min)) = smallest_larger_than(result.chars().last().unwrap(), &s) {
+            s.remove(i);
+            result.push(min)
+        }
+
+        match largest_smaller_than('{', &s) {
+            None => break,
+            Some((i, max)) => {
+                s.remove(i);
+                result.push(max)
+            }
+        }
+
+        while let Some((i, max)) = largest_smaller_than(result.chars().last().unwrap(), &s) {
+            s.remove(i);
+            result.push(max)
+        }
+    }
+
+    result
 }
-*/
 
 #[cfg(test)]
 mod test {
@@ -39,18 +88,30 @@ mod test {
 
     #[test]
     fn test_smallest_larger_than() {
-        assert_eq!(smallest_larger_than('c', "abc".to_string()), None);
-        assert_eq!(smallest_larger_than('c', "abcde".to_string()), Some((3, 'd')));
-        assert_eq!(smallest_larger_than('c', "adcbe".to_string()), Some((1, 'd')));
+        assert_eq!(smallest_larger_than('c', &"abc".to_string()), None);
+        assert_eq!(
+            smallest_larger_than('c', &"abcde".to_string()),
+            Some((3, 'd'))
+        );
+        assert_eq!(
+            smallest_larger_than('c', &"adcbe".to_string()),
+            Some((1, 'd'))
+        );
     }
 
     #[test]
     fn test_largest_smaller_than() {
-        assert_eq!(largest_smaller_than('a', "abc".to_string()), None);
-        assert_eq!(largest_smaller_than('c', "abcde".to_string()), Some((1, 'b')));
-        assert_eq!(largest_smaller_than('c', "adcbe".to_string()), Some((3, 'b')));
+        assert_eq!(largest_smaller_than('a', &"abc".to_string()), None);
+        assert_eq!(
+            largest_smaller_than('c', &"abcde".to_string()),
+            Some((1, 'b'))
+        );
+        assert_eq!(
+            largest_smaller_than('c', &"adcbe".to_string()),
+            Some((3, 'b'))
+        );
     }
-/*
+
     #[test]
     fn test_sort_string() {
         assert_eq!(sort_string("rat".to_string()), "art".to_string());
@@ -62,5 +123,4 @@ mod test {
             "abccbaabccba".to_string()
         );
     }
-*/
 }
