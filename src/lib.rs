@@ -14,6 +14,7 @@ mod flip_and_invert_image;
 mod freq_alphabets;
 mod generate_the_string;
 mod identical_pairs;
+mod increasing_decreasing_string;
 mod jewels_and_stones;
 mod kids_with_candies;
 mod linked_list_binary_to_decimal;
