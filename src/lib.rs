@@ -28,6 +28,7 @@ mod range_sum_bst;
 mod reduce_to_zero;
 mod remove_outer_parentheses;
 mod running_sum_of_1d_array;
+mod self_dividing_numbers;
 mod shuffle_string;
 mod shuffle_the_array;
 mod smaller_numbers_than_current;
