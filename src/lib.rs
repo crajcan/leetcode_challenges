@@ -20,6 +20,7 @@ mod kids_with_candies;
 mod linked_list_binary_to_decimal;
 mod max_69_number;
 mod max_product;
+mod merge_trees;
 mod min_time_to_visit_all_points;
 mod morse_code;
 mod odd_cells;
