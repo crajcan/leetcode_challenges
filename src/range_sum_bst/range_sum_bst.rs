@@ -27,16 +27,13 @@ impl Tree {
     pub fn insert(&self, new_val: i32) {
         match new_val < self.value() {
             true => {
-                let left = self.0.borrow().left;
-
-                match left {
+                match &self.0.borrow().left {
                     None => self.0.borrow_mut().left = Some(Tree::new(new_val)),
                     Some(tree) => tree.insert(new_val),
                 }
             }
             _ => {
-                let right = self.0.borrow().right;
-                match right {
+                match &self.0.borrow().right {
                     None => self.0.borrow_mut().right = Some(Tree::new(new_val)),
                     Some(tree) => tree.insert(new_val),
                 }
