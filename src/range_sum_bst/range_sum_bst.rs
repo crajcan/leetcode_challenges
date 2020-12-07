@@ -25,20 +25,18 @@ impl Tree {
     }
 
     pub fn insert(&self, new_val: i32) {
-        match new_val < self.value() {
-            true => {
-                let mut ptr = self.0.borrow_mut();
+        let mut tree_node = self.0.borrow_mut();
 
-                match &ptr.left {
-                    None => ptr.left = Some(Tree::new(new_val)),
+        match new_val < tree_node.val {
+            true => {
+                match &tree_node.left {
+                    None => tree_node.left = Some(Tree::new(new_val)),
                     Some(tree) => tree.insert(new_val),
                 }
             }
             _ => {
-                let mut ptr = self.0.borrow_mut();
-
-                match &ptr.right {
-                    None => ptr.right = Some(Tree::new(new_val)),
+                match &tree_node.right {
+                    None => tree_node.right = Some(Tree::new(new_val)),
                     Some(tree) => tree.insert(new_val),
                 }
             }
