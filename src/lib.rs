@@ -28,6 +28,7 @@ mod parking_system;
 mod range_sum_bst;
 mod reduce_to_zero;
 mod remove_outer_parentheses;
+mod roman_to_integer;
 mod running_sum_of_1d_array;
 mod self_dividing_numbers;
 mod shuffle_string;
