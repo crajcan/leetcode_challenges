@@ -18,6 +18,7 @@ mod increasing_decreasing_string;
 mod jewels_and_stones;
 mod kids_with_candies;
 mod linked_list_binary_to_decimal;
+mod longest_common_prefix;
 mod max_69_number;
 mod max_product;
 mod merge_trees;
