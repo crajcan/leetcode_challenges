@@ -42,4 +42,5 @@ mod sum_odd_length_subarrays;
 mod sum_zero;
 mod to_lower_case;
 mod two_sum;
+mod valid_parentheses;
 mod xor_operation;
