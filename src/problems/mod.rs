@@ -1,5 +1,6 @@
 #![allow(dead_code)]
 
+pub mod add_binary;
 pub mod balanced_string_split;
 pub mod busy_student;
 pub mod count_good_triplets;
