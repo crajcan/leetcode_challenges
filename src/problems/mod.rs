@@ -21,6 +21,7 @@ pub mod linked_list_binary_to_decimal;
 pub mod longest_common_prefix;
 pub mod max_69_number;
 pub mod max_product;
+pub mod max_sub_array;
 pub mod merge_trees;
 pub mod merge_two_lists;
 pub mod min_time_to_visit_all_points;
