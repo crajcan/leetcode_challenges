@@ -30,6 +30,7 @@ pub mod parking_system;
 pub mod range_sum_bst;
 pub mod reduce_to_zero;
 pub mod remove_duplicates;
+pub mod remove_element;
 pub mod remove_outer_parentheses;
 pub mod roman_to_integer;
 pub mod running_sum_of_1d_array;
