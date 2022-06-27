@@ -28,6 +28,7 @@ pub mod merge_trees;
 pub mod merge_two_lists;
 pub mod min_time_to_visit_all_points;
 pub mod morse_code;
+pub mod my_sqrt;
 pub mod odd_cells;
 pub mod parking_system;
 pub mod plus_one;
