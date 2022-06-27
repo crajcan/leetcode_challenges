@@ -35,6 +35,7 @@ pub mod remove_outer_parentheses;
 pub mod roman_to_integer;
 pub mod running_sum_of_1d_array;
 pub mod self_dividing_numbers;
+pub mod search_insert;
 pub mod shuffle_string;
 pub mod shuffle_the_array;
 pub mod smaller_numbers_than_current;
