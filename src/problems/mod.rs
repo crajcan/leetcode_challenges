@@ -29,6 +29,7 @@ pub mod min_time_to_visit_all_points;
 pub mod morse_code;
 pub mod odd_cells;
 pub mod parking_system;
+pub mod plus_one;
 pub mod range_sum_bst;
 pub mod reduce_to_zero;
 pub mod remove_duplicates;
