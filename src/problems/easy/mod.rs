@@ -6,6 +6,7 @@ pub mod binary_search;
 pub mod busy_student;
 pub mod count_good_triplets;
 pub mod count_negatives;
+pub mod climb_stairs;
 pub mod create_target_array;
 pub mod decompress_rl_elist;
 pub mod defang_ip;
