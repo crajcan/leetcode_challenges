@@ -28,19 +28,3 @@ o_i.unwrap_or_else(|| {  println!("no value found!"); 45});
 ```
 for end in (0..=nums_sub.len()).rev() {
 ```
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    

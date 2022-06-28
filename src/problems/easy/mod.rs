@@ -2,6 +2,7 @@
 
 pub mod add_binary;
 pub mod balanced_string_split;
+pub mod binary_search;
 pub mod busy_student;
 pub mod count_good_triplets;
 pub mod count_negatives;
