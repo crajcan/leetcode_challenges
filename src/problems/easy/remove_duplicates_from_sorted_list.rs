@@ -17,25 +17,20 @@ pub fn delete_helper(head: Option<Box<ListNode>>, previous: Option<i32>) -> Opti
         Some(b) => {
             let ListNode { next, val } = *b;
 
-            if previous == None {
-                // cons this val onto the recursive case, set prev
-                Some(Box::new(ListNode {
-                    val: val,
-                    next: delete_helper(next, Some(val)),
-                }))
-            } else {
-                if previous == Some(val) {
-                    // return next (skip)
-                    delete_helper(next, previous)
-                } else {
+            match previous {
+                None => Some(Box::new(ListNode {
+                        val: val,
+                        next: delete_helper(next, Some(val)),
+                    })),
+                Some(v) if v == val => delete_helper(next, previous),
+                _ =>
                     Some(Box::new(ListNode {
                         val: val,
                         next: delete_helper(next, Some(val)),
-                    }))
-                }
+                    })),
             }
-        }
-        None => None,
+        },
+        None => None
     }
 }
 
@@ -60,10 +55,22 @@ mod test {
         let head = Some(Box::new(ListNode { val: 1, next: head }));
 
         let expected = Some(Box::new(ListNode::new(5)));
-        let expected = Some(Box::new(ListNode { val: 4, next: expected }));
-        let expected = Some(Box::new(ListNode { val: 3, next: expected }));
-        let expected = Some(Box::new(ListNode { val: 2, next: expected }));
-        let expected = Some(Box::new(ListNode { val: 1, next: expected }));
+        let expected = Some(Box::new(ListNode {
+            val: 4,
+            next: expected,
+        }));
+        let expected = Some(Box::new(ListNode {
+            val: 3,
+            next: expected,
+        }));
+        let expected = Some(Box::new(ListNode {
+            val: 2,
+            next: expected,
+        }));
+        let expected = Some(Box::new(ListNode {
+            val: 1,
+            next: expected,
+        }));
 
         assert_eq!(delete_duplicates(head), expected);
     }
