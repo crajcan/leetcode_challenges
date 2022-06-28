@@ -19,23 +19,37 @@ pub fn delete_helper(head: Option<Box<ListNode>>, previous: Option<i32>) -> Opti
 
             match previous {
                 None => Some(Box::new(ListNode {
-                        val: val,
-                        next: delete_helper(next, Some(val)),
-                    })),
+                    val: val,
+                    next: delete_helper(next, Some(val)),
+                })),
                 Some(v) if v == val => delete_helper(next, previous),
-                _ =>
-                    Some(Box::new(ListNode {
-                        val: val,
-                        next: delete_helper(next, Some(val)),
-                    })),
+                _ => Some(Box::new(ListNode {
+                    val: val,
+                    next: delete_helper(next, Some(val)),
+                })),
             }
-        },
-        None => None
+        }
+        None => None,
     }
 }
 
 pub fn delete_duplicates(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     delete_helper(head, None)
+}
+pub fn delete_duplicates_iterative(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+    if head.is_none() {
+        return None;
+    }
+    let mut current_node = head.as_mut().unwrap();
+
+    while let Some(next_node) = current_node.next.as_mut() {
+        if current_node.val == next_node.val {
+            current_node.next = next_node.next.take()
+        } else {
+            current_node = current_node.next.as_mut().unwrap()
+        }
+    }
+    head
 }
 
 #[cfg(test)]
@@ -73,5 +87,38 @@ mod test {
         }));
 
         assert_eq!(delete_duplicates(head), expected);
+    }
+
+    #[test]
+    fn test_delete_duplicates_iterative() {
+        let head = Some(Box::new(ListNode::new(5)));
+        let head = Some(Box::new(ListNode { val: 5, next: head }));
+        let head = Some(Box::new(ListNode { val: 4, next: head }));
+        let head = Some(Box::new(ListNode { val: 4, next: head }));
+        let head = Some(Box::new(ListNode { val: 3, next: head }));
+        let head = Some(Box::new(ListNode { val: 2, next: head }));
+        let head = Some(Box::new(ListNode { val: 2, next: head }));
+        let head = Some(Box::new(ListNode { val: 1, next: head }));
+        let head = Some(Box::new(ListNode { val: 1, next: head }));
+
+        let expected = Some(Box::new(ListNode::new(5)));
+        let expected = Some(Box::new(ListNode {
+            val: 4,
+            next: expected,
+        }));
+        let expected = Some(Box::new(ListNode {
+            val: 3,
+            next: expected,
+        }));
+        let expected = Some(Box::new(ListNode {
+            val: 2,
+            next: expected,
+        }));
+        let expected = Some(Box::new(ListNode {
+            val: 1,
+            next: expected,
+        }));
+
+        assert_eq!(delete_duplicates_iterative(head), expected);
     }
 }
