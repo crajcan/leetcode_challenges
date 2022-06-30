@@ -28,18 +28,14 @@ impl Tree {
         let mut tree_node = self.0.borrow_mut();
 
         match new_val < tree_node.val {
-            true => {
-                match &tree_node.left {
-                    None => tree_node.left = Some(Tree::new(new_val)),
-                    Some(tree) => tree.insert(new_val),
-                }
-            }
-            _ => {
-                match &tree_node.right {
-                    None => tree_node.right = Some(Tree::new(new_val)),
-                    Some(tree) => tree.insert(new_val),
-                }
-            }
+            true => match &tree_node.left {
+                None => tree_node.left = Some(Tree::new(new_val)),
+                Some(tree) => tree.insert(new_val),
+            },
+            _ => match &tree_node.right {
+                None => tree_node.right = Some(Tree::new(new_val)),
+                Some(tree) => tree.insert(new_val),
+            },
         }
     }
 }

@@ -1,17 +1,14 @@
 #[derive(PartialEq, Eq, Clone, Debug)]
 pub struct ListNode {
-  pub val: i32,
-  pub next: Option<Box<ListNode>>
+    pub val: i32,
+    pub next: Option<Box<ListNode>>,
 }
 
 impl ListNode {
-  #[inline]
-  fn new(val: i32) -> Self {
-    ListNode {
-      next: None,
-      val
+    #[inline]
+    fn new(val: i32) -> Self {
+        ListNode { next: None, val }
     }
-  }
 }
 
 pub fn merge_two_lists(
@@ -44,7 +41,6 @@ pub fn merge_two_lists(
     }
 }
 
-
 #[cfg(test)]
 mod test {
     use super::*;
@@ -57,20 +53,14 @@ mod test {
                     val: 1,
                     next: Some(Box::new(ListNode {
                         val: 2,
-                        next: Some(Box::new(ListNode {
-                            val: 4,
-                            next: None,
-                        })),
+                        next: Some(Box::new(ListNode { val: 4, next: None })),
                     })),
                 })),
                 Some(Box::new(ListNode {
                     val: 1,
                     next: Some(Box::new(ListNode {
                         val: 3,
-                        next: Some(Box::new(ListNode {
-                            val: 4,
-                            next: None,
-                        })),
+                        next: Some(Box::new(ListNode { val: 4, next: None })),
                     })),
                 })),
             ),
@@ -84,10 +74,7 @@ mod test {
                             val: 3,
                             next: Some(Box::new(ListNode {
                                 val: 4,
-                                next: Some(Box::new(ListNode {
-                                    val: 4,
-                                    next: None,
-                                })),
+                                next: Some(Box::new(ListNode { val: 4, next: None })),
                             })),
                         })),
                     })),

@@ -22,17 +22,17 @@ pub fn climb_stairs(n: i32) -> i32 {
 
 pub fn climb_stairs_iterative(n: i32) -> i32 {
     let mut results = vec![];
-    
+
     for i in 0..=n {
         match i {
             0 => results.push(0),
             1 => results.push(1),
             2 => results.push(2),
-            _ => results.push(results[(i as usize) - 1] + results[(i as usize) - 2])
+            _ => results.push(results[(i as usize) - 1] + results[(i as usize) - 2]),
         }
     }
-        
-    *results.last().unwrap() 
+
+    *results.last().unwrap()
 }
 
 #[cfg(test)]
