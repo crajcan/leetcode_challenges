@@ -22,10 +22,10 @@ impl TreeNode {
 
 pub fn inorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
     match root {
-        Some(refcell) => {
-            let node = refcell.borrow();
+        Some(rc) => {
+            let node = rc.borrow();
             let val = node.val;
-            println!("refcell.borrow().value: {}", val);
+
 
             let mut left = inorder_traversal(node.left.clone());
             let mut center = vec![val];

@@ -51,6 +51,7 @@ pub mod shuffle_string;
 pub mod shuffle_the_array;
 pub mod smaller_numbers_than_current;
 pub mod sort_array_by_parity;
+pub mod sorted_squares;
 pub mod strstr;
 pub mod subtract;
 pub mod subtract_product_and_sum;
