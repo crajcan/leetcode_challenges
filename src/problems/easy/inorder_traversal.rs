@@ -26,12 +26,10 @@ pub fn inorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
             let node = rc.borrow();
             let val = node.val;
 
-
             let mut left = inorder_traversal(node.left.clone());
-            let mut center = vec![val];
-            let mut right = inorder_traversal(node.right.clone());
+            let right = inorder_traversal(node.right.clone());
 
-            left.extend(center);
+            left.push(val);
             left.extend(right);
             left
         }
