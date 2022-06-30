@@ -20,6 +20,7 @@ pub mod generate_the_string;
 pub mod identical_pairs;
 pub mod increasing_decreasing_string;
 pub mod inorder_traversal;
+pub mod is_same_tree;
 pub mod jewels_and_stones;
 pub mod kids_with_candies;
 pub mod length_of_last_word;
