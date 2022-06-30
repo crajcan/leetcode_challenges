@@ -1,11 +1,9 @@
 pub fn move_zeroes(nums: &mut Vec<i32>) {
     let mut where_to_write: usize = 0;
 
-    for ptr in 0..nums.len() {
-        if nums[ptr] != 0 {
-            let temp = nums[where_to_write];
-            nums[where_to_write] = nums[ptr];
-            nums[ptr] = temp;
+    for i in 0..nums.len() {
+        if nums[i] != 0 {
+            swap(nums, i, where_to_write);
             where_to_write += 1;
         }
     }
