@@ -1,5 +1,5 @@
 # Gotchas
-## Stuff that modern tooling would catch but we have to remember
+    ## Stuff that modern tooling would catch but we have to remember
 
 1. Indexing into a `String`:
 
