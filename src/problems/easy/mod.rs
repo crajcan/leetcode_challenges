@@ -1,6 +1,7 @@
 #![allow(dead_code)]
 
 pub mod add_binary;
+pub mod balanced_binary_tree;
 pub mod balanced_string_split;
 pub mod binary_search;
 pub mod busy_student;
@@ -47,6 +48,7 @@ pub mod remove_duplicates;
 pub mod remove_duplicates_from_sorted_list;
 pub mod remove_element;
 pub mod remove_outer_parentheses;
+pub mod reverse_string;
 pub mod roman_to_integer;
 pub mod running_sum_of_1d_array;
 pub mod search_insert;

@@ -1,4 +1,3 @@
-// use pretty_assertions::assert_eq;
 
 // Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
@@ -18,7 +17,6 @@ impl TreeNode {
         }
     }
 }
-use std::borrow::{Borrow, BorrowMut};
 use std::cell::RefCell;
 use std::rc::Rc;
 
@@ -38,12 +36,12 @@ pub fn sorted_array_to_bst_iterative(nums: Vec<i32>) -> Option<Rc<RefCell<TreeNo
 
                 match nums {
                     [] => (),
-                    [x] => (),
-                    [x, y] => {
+                    [_x] => (),
+                    [x, _y] => {
                         let child = Rc::new(RefCell::new(TreeNode::new(*x)));
                         n.borrow_mut().left = Some(child.clone());
                     }
-                    [x, y, z] => {
+                    [x, _y, z] => {
                         let left_child = Rc::new(RefCell::new(TreeNode::new(*x)));
                         let right_child = Rc::new(RefCell::new(TreeNode::new(*z)));
                         n.borrow_mut().left = Some(left_child.clone());
@@ -99,6 +97,7 @@ pub fn to_tree(nums: &[i32]) -> Option<Rc<RefCell<TreeNode>>> {
 #[cfg(test)]
 mod test {
     use super::*;
+    use pretty_assertions::assert_eq;
 
     #[test]
     fn test_sorted_array_to_bst() {

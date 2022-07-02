@@ -110,3 +110,11 @@ fn refcell_helper(head: Option<RefCell<String>>) {
     // baz
     println!("b: {:?}", b);
 ```
+
+1. Max of two numbers
+
+let max = std::cmp::max(4, 5);
+
+1. Max of two or more numbers 
+
+let Some(max) = [1,2,3].iter().max();
