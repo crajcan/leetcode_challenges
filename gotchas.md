@@ -118,3 +118,7 @@ let max = std::cmp::max(4, 5);
 1. Max of two or more numbers 
 
 let Some(max) = [1,2,3].iter().max();
+
+1. When working with linked lists we can't do a "two pointers" strategy unless the list nodes are wrapped in `Rc<T>`, because each pointer is an owner. Either iterate the list twice if possible or make a clone. 
+
+1. In leetcode we can usually throw a `mut` in front of the function input if we want to mutate it instead of making a clone. 

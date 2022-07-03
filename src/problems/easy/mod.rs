@@ -35,6 +35,7 @@ pub mod max_sub_array;
 pub mod merge_sorted_array;
 pub mod merge_trees;
 pub mod merge_two_lists;
+pub mod middle_node;
 pub mod min_time_to_visit_all_points;
 pub mod morse_code;
 pub mod move_zeroes;
