@@ -12,12 +12,11 @@ impl ListNode {
     }
 }
 
-pub fn list_length(head: &Option<Box<ListNode>>) -> i32 {
+pub fn list_length(mut head: &Option<Box<ListNode>>) -> i32 {
     let mut count = 0;
-    let mut node = head;
-    while let Some(n) = node {
+    while let Some(n) = head {
         count += 1;
-        node = &n.next;
+        head = &n.next;
     }
     count
 }
