@@ -14,6 +14,7 @@ pub mod diagonal_sum;
 pub mod find_numbers_with_even_length;
 pub mod first_bad_version;
 pub mod flip_and_invert_image;
+pub mod flood_fill;
 pub mod freq_alphabets;
 pub mod generate_the_string;
 pub mod identical_pairs;
