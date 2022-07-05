@@ -1,5 +1,3 @@
-#![allow(dead_code)]
-
 pub mod add_binary;
 pub mod balanced_binary_tree;
 pub mod balanced_string_split;
