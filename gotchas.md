@@ -122,3 +122,15 @@ let Some(max) = [1,2,3].iter().max();
 1. When working with linked lists we can't do a "two pointers" strategy unless the list nodes are wrapped in `Rc<T>`, because each pointer is an owner. Either iterate the list twice if possible or make a clone. 
 
 1. In leetcode we can usually throw a `mut` in front of the function input if we want to mutate it instead of making a clone. 
+
+1. Mutating data held within a mutable reference:  
+
+
+```
+    fn foo(islands: &mut Vec<Vec<(usize, usize)>>) -> 
+        let island = islands.last_mut().unwrap();
+        island.push(*/whatver*/);
+```
+
+`.first` and `.last` return `Option<&elem>` from array types, not `Option<&mut elem>`.
+To get a mutable reference into a mutable reference we would use something like `.first_mut` or `.last_mut`

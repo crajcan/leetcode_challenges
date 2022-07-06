@@ -32,7 +32,7 @@ pub mod max_depth;
 pub mod max_product;
 pub mod max_sub_array;
 pub mod merge_sorted_array;
-pub mod merge_trees;
+pub mod merge_two_binary_trees;
 pub mod merge_two_lists;
 pub mod middle_node;
 pub mod min_time_to_visit_all_points;
