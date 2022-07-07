@@ -15,6 +15,9 @@
         2. moving
            1. rotate
            2. find zeroes
+   3. Graph Theory
+      1. Breadth-first search
+         1. distance_to_water
 
 ## When to use recurision
 
