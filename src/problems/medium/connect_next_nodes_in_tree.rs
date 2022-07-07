@@ -24,26 +24,26 @@ use std::rc::Rc;
 pub fn connect(root: &mut Option<Rc<RefCell<Node>>>) {
     match root {
         None => return,
-        Some(node) => {
-            let mut node_borrow = node.borrow_mut();
+        Some(rc) => {
+            let mut root = rc.borrow_mut();
 
-            match node_borrow.left.clone() {
+            match &root.left {
                 None => (),
-                Some(left_node) => {
+                Some(left) => {
                     // point left at right
-                    left_node.borrow_mut().next = node_borrow.right.clone();
+                    left.borrow_mut().next = root.right.clone();
 
                     // if next exists, point right at next.left
-                    match node_borrow.next.clone() {
+                    match &root.next {
                         None => (),
-                        Some(next_node) => {
-                            let next_node_left = next_node.borrow().left.clone();
-                            node_borrow.right.as_mut().unwrap().borrow_mut().next = next_node_left;
+                        Some(next) => {
+                            root.right.as_ref().unwrap().borrow_mut().next =
+                                next.borrow().left.clone();
                         }
                     }
 
-                    connect(&mut Some(left_node));
-                    connect(&mut node_borrow.right);
+                    connect(&mut root.left);
+                    connect(&mut root.right);
                 }
             }
         }
