@@ -36,6 +36,7 @@ pub mod merge_two_binary_trees;
 pub mod merge_two_lists;
 pub mod middle_node;
 pub mod min_time_to_visit_all_points;
+pub mod minimum_depth_of_binary_tree;
 pub mod morse_code;
 pub mod move_zeroes;
 pub mod my_sqrt;
