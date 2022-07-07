@@ -42,6 +42,7 @@ pub mod move_zeroes;
 pub mod my_sqrt;
 pub mod odd_cells;
 pub mod parking_system;
+pub mod path_sum;
 pub mod plus_one;
 pub mod range_sum_bst;
 pub mod reduce_to_zero;
