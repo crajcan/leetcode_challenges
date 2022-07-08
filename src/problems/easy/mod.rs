@@ -22,6 +22,7 @@ pub mod increasing_decreasing_string;
 pub mod inorder_traversal;
 pub mod is_same_tree;
 pub mod is_symmetric;
+pub mod is_palindrome;
 pub mod jewels_and_stones;
 pub mod kids_with_candies;
 pub mod length_of_last_word;
