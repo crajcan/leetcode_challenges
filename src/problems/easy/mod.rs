@@ -30,6 +30,7 @@ pub mod longest_common_prefix;
 pub mod max_69_number;
 pub mod max_depth;
 pub mod max_product;
+pub mod max_profit_from_stocks;
 pub mod max_sub_array;
 pub mod merge_sorted_array;
 pub mod merge_two_binary_trees;
