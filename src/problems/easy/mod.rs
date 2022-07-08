@@ -59,6 +59,7 @@ pub mod roman_to_integer;
 pub mod running_sum_of_1d_array;
 pub mod search_insert;
 pub mod self_dividing_numbers;
+pub mod single_number;
 pub mod shuffle_string;
 pub mod shuffle_the_array;
 pub mod smaller_numbers_than_current;
