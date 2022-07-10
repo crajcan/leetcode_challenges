@@ -43,6 +43,7 @@ pub mod minimum_depth_of_binary_tree;
 pub mod morse_code;
 pub mod move_zeroes;
 pub mod my_sqrt;
+pub mod number_of_one_bits;
 pub mod odd_cells;
 pub mod parking_system;
 pub mod pascals_triangle;
