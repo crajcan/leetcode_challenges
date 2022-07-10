@@ -29,6 +29,7 @@ pub mod kids_with_candies;
 pub mod length_of_last_word;
 pub mod linked_list_binary_to_decimal;
 pub mod longest_common_prefix;
+pub mod list_cycle;
 pub mod max_69_number;
 pub mod max_depth;
 pub mod max_product;
