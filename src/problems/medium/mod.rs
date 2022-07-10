@@ -9,3 +9,4 @@ pub mod permutation_in_string;
 pub mod permutations;
 pub mod remove_nth_from_end;
 pub mod rotting_oranges;
+pub mod triangle_path;
