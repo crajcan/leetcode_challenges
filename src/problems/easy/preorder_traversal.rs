@@ -25,12 +25,12 @@ pub fn preorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
             let val = node.val;
             println!("refcell.borrow().value: {}", val);
 
-            let mut left = preorder_traversal(match &node.left {
+            let left = preorder_traversal(match &node.left {
                 Some(rc) => Some(Rc::clone(&rc)),
                 None => None,
             });
             let mut center = vec![val];
-            let mut right = preorder_traversal(node.right.clone());
+            let right = preorder_traversal(node.right.clone());
 
             center.extend(left);
             center.extend(right);
