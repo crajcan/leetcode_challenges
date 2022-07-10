@@ -1,148 +1,66 @@
-use std::cell::RefCell;
-use std::rc::Rc; //Definition for a binary tree node.
+// Definition for a binary tree node.
 #[derive(Debug, PartialEq, Eq)]
-struct TreeNode {
+pub struct TreeNode {
     pub val: i32,
-    pub left: Option<Tree>,
-    pub right: Option<Tree>,
+    pub left: Option<Rc<RefCell<TreeNode>>>,
+    pub right: Option<Rc<RefCell<TreeNode>>>,
 }
 
-#[derive(Debug, PartialEq, Eq)]
-pub struct Tree(Rc<RefCell<TreeNode>>);
-
-impl Tree {
+impl TreeNode {
     #[inline]
     pub fn new(val: i32) -> Self {
-        Tree(Rc::new(RefCell::new(TreeNode {
+        TreeNode {
             val,
             left: None,
             right: None,
-        })))
-    }
-
-    pub fn value(&self) -> i32 {
-        self.0.borrow().val.clone()
-    }
-
-    pub fn insert(&self, new_val: i32) {
-        let mut tree_node = self.0.borrow_mut();
-
-        match new_val < tree_node.val {
-            true => match &tree_node.left {
-                None => tree_node.left = Some(Tree::new(new_val)),
-                Some(tree) => tree.insert(new_val),
-            },
-            _ => match &tree_node.right {
-                None => tree_node.right = Some(Tree::new(new_val)),
-                Some(tree) => tree.insert(new_val),
-            },
         }
     }
 }
-/*
-pub fn range_sum_bst(root: Option<Rc<RefCell<TreeNode>>>, l: i32, r: i32) -> i32 {
+use std::cell::RefCell;
+use std::rc::Rc;
+
+pub fn range_sum_bst(root: Option<Rc<RefCell<TreeNode>>>, low: i32, high: i32) -> i32 {
     match root {
         None => 0,
-        Some(ptr) => {
-            let val = ptr.borrow().val.clone();
-            let left = ptr.borrow().left.clone();
-            let right = ptr.borrow().right.clone();
+        Some(rc) => {
+            let val = rc.borrow().val;
 
-            match (l <= val, r >= val) {
-                (true, true) => val + range_sum_bst(left, l, r) + range_sum_bst(right, l, r),
-                _ => range_sum_bst(left, l, r) + range_sum_bst(right, l, r),
+            if low <= val && val <= high {
+                val + range_sum_bst(rc.borrow().left.clone(), low, high)
+                    + range_sum_bst(rc.borrow().right.clone(), low, high)
+            } else {
+                range_sum_bst(rc.borrow().left.clone(), low, high)
+                    + range_sum_bst(rc.borrow().right.clone(), low, high)
             }
         }
     }
 }
-*/
+
 #[cfg(test)]
 mod test {
     use super::*;
 
     #[test]
-    fn test_new() {
-        assert_eq!(
-            Tree::new(42),
-            Tree(Rc::new(RefCell::new(TreeNode {
-                val: 42,
-                left: None,
-                right: None
-            })))
-        );
-    }
-
-    #[test]
-    fn test_value() {
-        assert_eq!(Tree::new(42).value(), 42);
-    }
-
-    #[test]
-    fn test_insert_left() {
-        let actual = Tree::new(42);
-        actual.insert(5);
-
-        assert_eq!(
-            actual,
-            Tree(Rc::new(RefCell::new(TreeNode {
-                val: 42,
-                left: Some(Tree::new(5)),
-                right: None
-            })))
-        )
-    }
-
-    #[test]
-    fn test_insert_right() {
-        let actual = Tree::new(42);
-        actual.insert(43);
-
-        assert_eq!(
-            actual,
-            Tree(Rc::new(RefCell::new(TreeNode {
-                val: 42,
-                left: None,
-                right: Some(Tree::new(43))
-            })))
-        )
-    }
-
-    #[test]
-    fn test_insert_lower() {
-        let actual = Tree::new(15);
-        actual.insert(10);
-        actual.insert(13);
-
-        assert_eq!(
-            actual,
-            Tree(Rc::new(RefCell::new(TreeNode {
-                val: 15,
-                right: None,
-                left: Some(Tree(Rc::new(RefCell::new(TreeNode {
-                    val: 10,
-                    left: None,
-                    right: Some(Tree::new(13))
-                }))))
-            })))
-        )
-    }
-}
-
-/*
-    #[test]
     fn test_range_sum_bst() {
-        let root = None;
-        let tree = vec![10, 5, 15, 3, 7, 18]
-            .iter()
-            .fold(root, |r, val| TreeNode::insert(r, *val));
+        let three = TreeNode::new(3);
+        let seven = TreeNode::new(7);
+        let eighteen = TreeNode::new(18);
+        let five = TreeNode {
+            val: 5,
+            left: Some(Rc::new(RefCell::new(three))),
+            right: Some(Rc::new(RefCell::new(seven))),
+        };
+        let fifteen = TreeNode {
+            val: 15,
+            left: None,
+            right: Some(Rc::new(RefCell::new(eighteen))),
+        };
+        let root = TreeNode {
+            val: 10,
+            left: Some(Rc::new(RefCell::new(five))),
+            right: Some(Rc::new(RefCell::new(fifteen))),
+        };
 
-        assert_eq!(range_sum_bst(tree.clone(), 7, 15), 32);
-
-        let next_tree = vec![1, 6]
-            .iter()
-            .fold(tree, |t, val| TreeNode::insert(t, *val));
-
-        assert_eq!(range_sum_bst(next_tree, 6, 10), 23);
+        assert_eq!(range_sum_bst(Some(Rc::new(RefCell::new(root))), 7, 15), 32);
     }
 }
-*/
