@@ -1,4 +1,4 @@
-// #[derive(Debug, PartialEq, Eq)]
+#[derive(Debug, PartialEq, Eq)]
  pub struct TreeNode {
    pub val: i32,
    pub left: Option<Rc<RefCell<TreeNode>>>,
@@ -24,7 +24,7 @@ pub fn postorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
             let val = node.val;
 
             let mut left = postorder_traversal(node.left.clone());
-            let mut right = postorder_traversal(node.right.clone());
+            let right = postorder_traversal(node.right.clone());
 
             left.extend(right);
             left.push(val);

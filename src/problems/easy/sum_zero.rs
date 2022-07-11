@@ -20,6 +20,7 @@ pub fn sum_zero(n: i32) -> Vec<i32> {
     result
 }
 
+#[cfg(test)]
 mod test {
     use super::*;
 

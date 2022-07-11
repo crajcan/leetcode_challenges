@@ -12,6 +12,7 @@ pub fn max_product(nums: Vec<i32>) -> i32 {
     (maximums.0 - 1) * (maximums.1 - 1)
 }
 
+#[cfg(test)]
 mod test {
     use super::*;
 

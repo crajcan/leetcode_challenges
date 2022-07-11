@@ -11,6 +11,7 @@ pub mod decompress_rl_elist;
 pub mod defang_ip;
 pub mod destination_city;
 pub mod diagonal_sum;
+pub mod excel_sheet_column;
 pub mod find_numbers_with_even_length;
 pub mod first_bad_version;
 pub mod flip_and_invert_image;
