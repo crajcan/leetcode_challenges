@@ -80,6 +80,7 @@ pub mod subtract;
 pub mod subtract_product_and_sum;
 pub mod sum_odd_length_subarrays;
 pub mod sum_zero;
+pub mod surface_area_3d;
 pub mod to_lower_case;
 pub mod two_sum;
 pub mod valid_parentheses;
