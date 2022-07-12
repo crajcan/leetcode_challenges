@@ -32,7 +32,7 @@ mod test {
 
         assert_eq!(
             surface_area(vec![vec![1, 1, 1], vec![1, 0, 1], vec![1, 1, 1]]),
-            31
+            32
         );
     }
 }

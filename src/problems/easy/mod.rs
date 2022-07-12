@@ -4,6 +4,7 @@ pub mod balanced_string_split;
 pub mod binary_search;
 pub mod busy_student;
 pub mod climb_stairs;
+pub mod contains_duplicate;
 pub mod count_good_triplets;
 pub mod count_negatives;
 pub mod create_target_array;
