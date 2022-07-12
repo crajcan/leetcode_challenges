@@ -53,6 +53,7 @@ pub mod odd_cells;
 pub mod parking_system;
 pub mod pascals_triangle;
 pub mod path_sum;
+pub mod pivot_index;
 pub mod plus_one;
 pub mod postorder_traversal;
 pub mod preorder_traversal;
