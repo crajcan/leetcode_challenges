@@ -1,93 +1,23 @@
-pub fn surface_area(mut grid: Vec<Vec<i32>>) -> i32 {
-    let mut height = grid
-        .iter()
-        .fold(0, |max, row| std::cmp::max(max, *row.iter().max().unwrap()));
-    println!("height: {}", height);
+pub fn surface_area(grid: Vec<Vec<i32>>) -> i32 {
+    let dirs = [(-1, 0), (0, 1), (1, 0), (0, -1)];
+    let l = grid.len() as i32;
+    let mut res = 0;
 
-    let mut floor = 0;
-    let mut walls = 0;
-    let mut cieling = 0;
+    for (row, i) in grid.iter().zip(0..) {
+        for (&val, j) in row.iter().zip(0..).filter(|(val, _)| **val > 0) {
+            res += 2; // up and down surfaces
 
-    for level in 0..height {
-        for i in 0..grid.len() {
-            vec![1, 1, 1]
-                .iter()
-                .zip(0..)
-                .for_each(|c| println!("c: {:?}", c));
-            vec![1, 0, 1]
-                .iter()
-                .zip(0..)
-                .for_each(|c| println!("c: {:?}", c));
-            vec![1, 1, 1]
-                .iter()
-                .zip(0..)
-                .for_each(|c| println!("c: {:?}", c));
-
-            for j in 0..grid[0].len() {
-                println!("walls: {}", walls);
-                println!("i, j : {},{}", i, j);
-                //  measure floor
-                if level == 0 && grid[i][j] != 0 {
-                    floor = floor + 1;
-                }
-
-                if grid[i][j] > 0 {
-                    walls += 4;
-                    // top
-                    if i > 0 {
-                        println!("    checking top neighbor");
-                        if grid[i - 1][j] != 0 {
-                            println!("        found top neighbor");
-                            walls -= 1;
-                        };
-                    }
-                    // right
-                    if j < grid[0].len() - 1 {
-                        println!("    checking right neighbor");
-                        if grid[i][j + 1] != 0 {
-                            println!("        found right neighbor");
-                            walls -= 1;
-                        };
-                    }
-
-                    // bottom
-                    if i < grid.len() - 1 {
-                        if grid[i + 1][j] != 0 {
-                            println!("    checking below neighbor");
-                            println!("        found below neighbor");
-                            walls -= 1;
-                        };
-                    }
-                    // left
-                    if j > 0 {
-                        println!("    checking left neighbor");
-                        if grid[i][j - 1] != 0 {
-                            println!("        found left neighbor");
-                            walls -= 1;
-                        };
-                    }
-                }
-
-                if grid[i][j] == 1 {
-                    cieling += 1;
-                }
-            }
-        }
-
-        for i in 0..grid.len() {
-            for j in 0..grid[0].len() {
-                if grid[i][j] > 0 {
-                    grid[i][j] -= 1;
-                }
+            // for each direction add the difference in heights
+            for (dx, dy) in dirs.iter().cloned() {
+                let (xx, yy) = (j + dx, i + dy);
+                res += match xx >= 0 && yy >= 0 && xx < l && yy < l {
+                    true => (val - grid[yy as usize][xx as usize]).max(0),
+                    false => val,
+                };
             }
         }
     }
-
-    println!("floor: {}", floor);
-    println!("walls: {}", walls);
-    println!("cieling: {}", cieling);
-
-    floor + walls + cieling
+    res
 }
 
 #[cfg(test)]
@@ -102,7 +32,7 @@ mod test {
 
         assert_eq!(
             surface_area(vec![vec![1, 1, 1], vec![1, 0, 1], vec![1, 1, 1]]),
-            32
+            31
         );
     }
 }
