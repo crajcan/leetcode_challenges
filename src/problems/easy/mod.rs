@@ -36,6 +36,7 @@ pub mod linked_list_binary_to_decimal;
 pub mod list_cycle;
 pub mod longest_common_prefix;
 pub mod longest_palindrome;
+pub mod lowest_common_ancestor;
 pub mod max_69_number;
 pub mod max_depth;
 pub mod max_product;
