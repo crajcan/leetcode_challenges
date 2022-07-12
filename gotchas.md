@@ -141,3 +141,9 @@ To get a mutable reference into a mutable reference we would use something like 
 let mut nums_without_num = nums.clone();
 nums_without_num.retain(|&n| n != *num);
 ```
+
+1. equivolent of ruby's `.uniq`:
+
+```
+nums.iter().collect::<HashSet<_>>()
+```

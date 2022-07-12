@@ -10,19 +10,12 @@ pub fn running_sum(nums: Vec<i32>) -> Vec<i32> {
     res
 }
 
-fn running_sum_helper(nums: Vec<i32>, sum: i32) -> Vec<i32> {
-    match nums.as_slice() {
-        [] => vec![],
-        _ => [
-            vec![nums[0] + sum],
-            running_sum_helper(nums[1..].to_vec(), nums[0] + sum),
-        ]
-        .concat(),
-    }
-}
-
 pub fn functional_running_sum(nums: Vec<i32>) -> Vec<i32> {
-    running_sum_helper(nums, 0)
+    nums.into_iter()
+        .fold(vec![], |sums, num| match sums.last() {
+            Some(prior_sum) => [&sums[..], &[prior_sum + num]].concat(),
+            None => [&sums[..], &[num]].concat(),
+        })
 }
 
 #[cfg(test)]

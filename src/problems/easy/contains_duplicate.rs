@@ -1,4 +1,6 @@
 pub fn contains_duplicate(nums: Vec<i32>) -> bool {
+    // nums.len() > nums.iter().collect::<HashSet<_>>().len()
+
     use std::collections::HashSet;
     let mut seen_once = HashSet::new();
 
