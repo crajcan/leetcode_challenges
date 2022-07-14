@@ -58,10 +58,6 @@ mod test {
             val: 1,
             next: intersection.clone(),
         })));
-        let right_connection = Some(Rc::new(RefCell::new(ListNode {
-            val: 2,
-            next: intersection.clone(),
-        })));
 
         let left = Some(Rc::new(RefCell::new(ListNode {
             val: 1,
