@@ -25,19 +25,18 @@ impl Tree {
     }
 
     pub fn insert(&self, new_val: i32) {
-        match new_val < self.value() {
-            true => {
-                let left = self.0.borrow().left;
+        let mut tree_node = self.0.borrow_mut();
 
-                match left {
-                    None => self.0.borrow_mut().left = Some(Tree::new(new_val)),
+        match new_val < tree_node.val {
+            true => {
+                match &tree_node.left {
+                    None => tree_node.left = Some(Tree::new(new_val)),
                     Some(tree) => tree.insert(new_val),
                 }
             }
             _ => {
-                let right = self.0.borrow().right;
-                match right {
-                    None => self.0.borrow_mut().right = Some(Tree::new(new_val)),
+                match &tree_node.right {
+                    None => tree_node.right = Some(Tree::new(new_val)),
                     Some(tree) => tree.insert(new_val),
                 }
             }
@@ -106,16 +105,17 @@ mod test {
             actual,
             Tree(Rc::new(RefCell::new(TreeNode {
                 val: 42,
-                left: Some(Tree::new(43)),
-                right: None
+                left: None,
+                right: Some(Tree::new(43))
             })))
         )
     }
 
     #[test]
     fn test_insert_lower() {
-        let actual = Tree::new(42);
-        actual.insert(45);
+        let actual = Tree::new(15);
+        actual.insert(10);
+        actual.insert(13);
 
         assert_eq!(
             actual,
