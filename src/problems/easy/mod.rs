@@ -23,6 +23,7 @@ pub mod generate_the_string;
 pub mod identical_pairs;
 pub mod increasing_decreasing_string;
 pub mod inorder_traversal;
+pub mod intersection_of_two_arrays;
 pub mod is_isomorphic;
 pub mod is_palindrome;
 pub mod is_power_of_two;
