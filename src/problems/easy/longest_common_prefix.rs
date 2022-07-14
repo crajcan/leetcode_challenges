@@ -1,6 +1,6 @@
 pub fn longest_common_prefix(strs: Vec<&str>) -> String {
     let mut result = "".to_string();
-    if strs.len() == 0 {
+    if strs.is_empty() {
         return result;
     };
     let mut i = 0;
@@ -20,7 +20,7 @@ pub fn longest_common_prefix(strs: Vec<&str>) -> String {
         }
 
         result.push(*this_char as char);
-        i = i + 1;
+        i += 1;
     }
 
     result

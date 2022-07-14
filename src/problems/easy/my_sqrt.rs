@@ -1,7 +1,7 @@
 pub fn my_sqrt(x: i32) -> i32 {
     let mut i = 1;
     while i <= (x / i) {
-        i = i + 1;
+        i += 1;
     }
 
     i - 1

@@ -70,7 +70,7 @@ mod test {
                 }))),
                 right: None
             })))),
-            true 
+            true
         );
         assert_eq!(
             is_balanced(Some(Rc::new(RefCell::new(TreeNode {

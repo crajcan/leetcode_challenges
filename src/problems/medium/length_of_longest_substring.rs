@@ -6,8 +6,8 @@ pub fn length_of_longest_substring(s: String) -> i32 {
     let mut substring: &[u8] = &[];
     let mut last_start = 0;
 
-    chars.into_iter().enumerate().fold(0, |max, (i, c)| {
-        let last_position = last_positions.get(&c);
+    chars.iter().enumerate().fold(0, |max, (i, c)| {
+        let last_position = last_positions.get(c);
 
         // we havent seen this char, or haven't seen it in this substring
         if last_position.is_none() || *last_position.unwrap() < last_start {
@@ -26,7 +26,7 @@ pub fn length_of_longest_substring(s: String) -> i32 {
         } else {
             // the substring already has this char
             // move the substring window past the last occurance
-            last_start = last_positions.get(&c).unwrap() + 1;
+            last_start = last_positions.get(c).unwrap() + 1;
             substring = &chars[last_start..i + 1];
 
             // record that we saw this char

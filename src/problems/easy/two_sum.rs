@@ -1,22 +1,18 @@
-fn compare_with_rest(i: usize, num: i32, nums: &[i32], target: i32) -> Option<Vec<usize>> {
-    for (j, other_num) in nums[i + 1..].iter().enumerate() {
-        if num + other_num == target {
-            return Some(vec![i, (j + i + 1)]);
-        }
-    }
-
-    None
-}
-
 pub fn two_sum(nums: Vec<i32>, target: i32) -> Vec<i32> {
-    for (i, num) in nums.iter().enumerate() {
-        match compare_with_rest(i, *num, nums.as_slice(), target) {
-            Some(result) => return result.into_iter().map(|x| x as i32).collect(),
-            None => (),
+    use std::collections::HashMap;
+    let mut seen = HashMap::new();
+
+    for i in 0..nums.len() {
+        let needed = target - nums[i];
+
+        if seen.contains_key(&needed) {
+            return vec![seen[&needed], i as i32];
+        } else {
+            seen.insert(nums[i], i as i32);
         }
     }
 
-    vec![]
+    vec![0, 0]
 }
 
 #[cfg(test)]

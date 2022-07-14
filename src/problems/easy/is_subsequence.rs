@@ -10,7 +10,7 @@ pub fn helper(s: &[u8], t: &[u8]) -> bool {
 }
 
 pub fn is_subsequence(s: String, t: String) -> bool {
-    helper(&s.as_bytes(), &t.as_bytes())
+    helper(s.as_bytes(), t.as_bytes())
 }
 
 #[cfg(test)]

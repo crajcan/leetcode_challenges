@@ -28,7 +28,10 @@ pub fn reverse_list(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     new_head
 }
 
-pub fn reverse_helper(new_head: Option<Box<ListNode>>, mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
+pub fn reverse_helper(
+    new_head: Option<Box<ListNode>>,
+    mut head: Option<Box<ListNode>>,
+) -> Option<Box<ListNode>> {
     match head {
         None => new_head,
         Some(ref mut node) => {

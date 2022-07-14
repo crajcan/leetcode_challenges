@@ -2,7 +2,7 @@ pub fn fill(image: &mut Vec<Vec<i32>>, sr: i32, sc: i32, start_color: i32, color
     println!("sr: {}, sc: {}", sr, sc);
     println!("image:\n");
 
-    for row in image.into_iter() {
+    for row in image.iter_mut() {
         println!("{:?}", row);
     }
 

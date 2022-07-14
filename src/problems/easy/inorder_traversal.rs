@@ -49,8 +49,8 @@ mod test {
         let right = Some(Rc::new(RefCell::new(TreeNode::new(3))));
         let root = Some(Rc::new(RefCell::new(TreeNode {
             val: 2,
-            left: left,
-            right: right,
+            left,
+            right,
         })));
 
         assert_eq!(inorder_traversal(root), vec![1, 2, 3]);

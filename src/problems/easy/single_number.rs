@@ -3,14 +3,14 @@ pub fn single_number(nums: Vec<i32>) -> i32 {
     let mut seen_once = HashMap::new();
 
     for num in nums {
-        if seen_once.contains_key(&num) {
-            seen_once.remove(&num);
+        if let std::collections::hash_map::Entry::Vacant(e) = seen_once.entry(num) {
+            e.insert(1);
         } else {
-            seen_once.insert(num, 1);
+            seen_once.remove(&num);
         }
     }
 
-    *seen_once.keys().nth(0).unwrap()
+    *seen_once.keys().next().unwrap()
 }
 
 #[cfg(test)]

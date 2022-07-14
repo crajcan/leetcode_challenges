@@ -64,7 +64,7 @@ mod test {
     fn test_add_to_each() {
         let empty = Vec::new();
 
-        assert_eq!(add_to_each(empty.clone(), 42), empty.clone());
+        assert_eq!(add_to_each(empty.clone(), 42), empty);
         assert_eq!(add_to_each(vec![vec![]], 42), vec![vec![42]]);
         assert_eq!(
             add_to_each(vec![vec![], vec![3], vec![1, 3]], 42),

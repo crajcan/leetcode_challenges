@@ -59,7 +59,7 @@ mod test {
     #[test]
     fn test_sorted_squares() {
         let x = [3, 4];
-        let y: Vec<_> = [5].iter().chain(&x).map(|&x| x).collect();
+        let y: Vec<_> = [5].iter().chain(&x).copied().collect();
         println!("y: {:?}", y);
 
         assert_eq!(

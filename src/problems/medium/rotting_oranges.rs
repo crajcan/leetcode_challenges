@@ -56,9 +56,7 @@ pub fn oranges_rotting(mut grid: Vec<Vec<i32>>) -> i32 {
             //tick
             count += 1;
 
-            let temp = grid;
-            grid = next_gen;
-            next_gen = temp;
+            std::mem::swap(&mut grid, &mut next_gen);
         }
     }
 

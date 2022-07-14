@@ -43,7 +43,7 @@ pub fn minimum_total(triangle: Vec<Vec<i32>>) -> i32 {
     triangle
         .last()
         .unwrap()
-        .into_iter()
+        .iter()
         .enumerate()
         .map(|(i, _)| triangle_helper(&triangle[..], i, &mut results))
         .min()

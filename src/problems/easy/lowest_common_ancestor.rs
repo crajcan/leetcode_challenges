@@ -23,7 +23,7 @@ pub fn lca(root: Option<Rc<RefCell<TreeNode>>>, p: i32, q: i32) -> Option<Rc<Ref
         Some(rc) => {
             let left = rc.borrow().left.clone();
             let right = rc.borrow().right.clone();
-            let val = rc.borrow().val.clone();
+            let val = rc.borrow().val;
 
             use std::cmp::Ordering::{Greater, Less};
             match (p.cmp(&val), q.cmp(&val)) {

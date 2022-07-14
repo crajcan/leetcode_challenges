@@ -8,7 +8,7 @@ pub fn roman_to_integer(s: String) -> i32 {
         println!(
             "phrase: {:?}, {:?}",
             phrase.0 as char,
-            *phrase.1.unwrap_or_else(|| &0) as char
+            *phrase.1.unwrap_or(&0) as char
         );
 
         let next = match phrase {

@@ -25,10 +25,7 @@ pub fn preorder_traversal(root: Option<Rc<RefCell<TreeNode>>>) -> Vec<i32> {
             let val = node.val;
             println!("refcell.borrow().value: {}", val);
 
-            let left = preorder_traversal(match &node.left {
-                Some(rc) => Some(Rc::clone(&rc)),
-                None => None,
-            });
+            let left = preorder_traversal(node.left.as_ref().map(Rc::clone));
             let mut center = vec![val];
             let right = preorder_traversal(node.right.clone());
 
@@ -52,8 +49,8 @@ mod test {
         let right = Some(Rc::new(RefCell::new(TreeNode::new(3))));
         let root = Some(Rc::new(RefCell::new(TreeNode {
             val: 2,
-            left: left,
-            right: right,
+            left,
+            right,
         })));
 
         assert_eq!(preorder_traversal(root), vec![2, 1, 3]);

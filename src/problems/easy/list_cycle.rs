@@ -72,18 +72,12 @@ mod test {
             val: 4,
             next: tail.clone(),
         })));
-        let three = Some(Rc::new(RefCell::new(ListNode {
-            val: 3,
-            next: four.clone(),
-        })));
+        let three = Some(Rc::new(RefCell::new(ListNode { val: 3, next: four })));
         let two = Some(Rc::new(RefCell::new(ListNode {
             val: 2,
-            next: three.clone(),
+            next: three,
         })));
-        let head = Some(Rc::new(RefCell::new(ListNode {
-            val: 1,
-            next: two.clone(),
-        })));
+        let head = Some(Rc::new(RefCell::new(ListNode { val: 1, next: two })));
         assert_eq!(has_cycle(head.clone()), false);
 
         tail.as_ref().unwrap().borrow_mut().next = head.clone();

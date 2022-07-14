@@ -2,10 +2,10 @@ pub fn title_to_number(column_title: String) -> i32 {
     let mut bytes = column_title.chars().rev().collect::<Vec<char>>();
     let mut total = 0;
 
-    while bytes.len() > 0 {
+    while !bytes.is_empty() {
         let byte = bytes.pop().unwrap();
 
-        total = total * 26;
+        total *= 26;
         total += (byte as i32) - 64;
     }
 

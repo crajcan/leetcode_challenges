@@ -19,12 +19,12 @@ pub fn delete_helper(head: Option<Box<ListNode>>, previous: Option<i32>) -> Opti
 
             match previous {
                 None => Some(Box::new(ListNode {
-                    val: val,
+                    val,
                     next: delete_helper(next, Some(val)),
                 })),
                 Some(v) if v == val => delete_helper(next, previous),
                 _ => Some(Box::new(ListNode {
-                    val: val,
+                    val,
                     next: delete_helper(next, Some(val)),
                 })),
             }
@@ -37,9 +37,7 @@ pub fn delete_duplicates(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     delete_helper(head, None)
 }
 pub fn delete_duplicates_iterative(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
-    if head.is_none() {
-        return None;
-    }
+    head.as_ref()?;
     let mut current_node = head.as_mut().unwrap();
 
     while let Some(next_node) = current_node.next.as_mut() {

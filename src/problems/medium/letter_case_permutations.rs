@@ -2,7 +2,7 @@ pub fn letter_case_permutation(s: String) -> Vec<String> {
     match s.len() {
         0 => vec![],
         1 => {
-            let first_char = s.chars().nth(0).unwrap();
+            let first_char = s.chars().next().unwrap();
 
             if first_char.is_ascii_alphabetic() {
                 vec![s.to_uppercase(), s.to_lowercase()]
@@ -11,7 +11,7 @@ pub fn letter_case_permutation(s: String) -> Vec<String> {
             }
         }
         _ => {
-            let first_char = s.chars().nth(0).unwrap();
+            let first_char = s.chars().next().unwrap();
 
             let possible_firsts = if first_char.is_ascii_alphabetic() {
                 if first_char.is_ascii_lowercase() {

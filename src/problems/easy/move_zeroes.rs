@@ -14,21 +14,16 @@ pub fn move_zeroes_recursive(nums: &mut Vec<i32>) {
 }
 
 pub fn swap(nums: &mut Vec<i32>, ptr: usize, where_to_write: usize) {
-    let temp = nums[where_to_write];
-    nums[where_to_write] = nums[ptr];
-    nums[ptr] = temp;
+    nums.swap(where_to_write, ptr);
 }
 
 pub fn move_zeroes_recursive_helper(nums: &mut Vec<i32>, ptr: usize, where_to_write: usize) {
     if ptr == nums.len() {
-        ()
+    } else if nums[ptr] != 0 {
+        swap(nums, ptr, where_to_write);
+        move_zeroes_recursive_helper(nums, ptr + 1, where_to_write + 1);
     } else {
-        if nums[ptr] != 0 {
-            swap(nums, ptr, where_to_write);
-            move_zeroes_recursive_helper(nums, ptr + 1, where_to_write + 1);
-        } else {
-            move_zeroes_recursive_helper(nums, ptr + 1, where_to_write);
-        }
+        move_zeroes_recursive_helper(nums, ptr + 1, where_to_write);
     }
 }
 

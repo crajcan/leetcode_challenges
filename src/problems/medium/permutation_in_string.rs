@@ -15,7 +15,7 @@ pub fn check_inclusion(s1: String, s2: String) -> bool {
     let s1_freqs = freqs(s1_bytes);
 
     match s1.len().cmp(&s2.len()) {
-        Ordering::Equal => s1_freqs == freqs(&s2_bytes[..]),
+        Ordering::Equal => s1_freqs == freqs(s2_bytes),
         Ordering::Greater => false,
         Ordering::Less => {
             for start in 0..=s2.len() - s1.len() {

@@ -1,5 +1,5 @@
 pub fn plus_one(digits: Vec<i32>) -> Vec<i32> {
-    let mut digits = digits.clone();
+    let mut digits = digits;
     for i in 0..digits.len() {
         let this_index = digits.len() - 1 - i;
         println!("this_index = {}", this_index);
@@ -11,7 +11,7 @@ pub fn plus_one(digits: Vec<i32>) -> Vec<i32> {
                 println!("digits = {:?}", digits);
             }
             _ => {
-                digits[this_index] = digits[this_index] + 1;
+                digits[this_index] += 1;
                 return digits;
             }
         }

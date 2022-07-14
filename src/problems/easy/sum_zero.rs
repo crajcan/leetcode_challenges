@@ -8,7 +8,7 @@ pub fn sum_zero(n: i32) -> Vec<i32> {
     }
 
     let mut e = 1;
-    for _i in start.clone()..n {
+    for _i in start..n {
         result.push(e);
         e *= -1;
 

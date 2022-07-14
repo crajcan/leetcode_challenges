@@ -7,11 +7,7 @@ struct ParkingSystem {
 
 impl ParkingSystem {
     pub fn new(big: i32, medium: i32, small: i32) -> Self {
-        ParkingSystem {
-            big: big,
-            medium: medium,
-            small: small,
-        }
+        ParkingSystem { big, medium, small }
     }
 
     fn add_car_of_level(spaces: &mut i32) -> bool {

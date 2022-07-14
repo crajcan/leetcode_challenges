@@ -30,7 +30,7 @@ fn morse_alphabet() -> HashMap<char, String> {
         ('z', "--.."),
     ]
     .iter()
-    .map(|(k, v)| (k.clone(), v.to_string()))
+    .map(|(k, v)| (*k, v.to_string()))
     .collect()
 }
 

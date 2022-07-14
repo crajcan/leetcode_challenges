@@ -12,7 +12,7 @@ fn equal_here(small: &[u8], big: &[u8]) -> bool {
 }
 
 pub fn str_str(haystack: String, needle: String) -> i32 {
-    if needle == "" {
+    if needle.is_empty() {
         return 0;
     }
 
@@ -20,7 +20,7 @@ pub fn str_str(haystack: String, needle: String) -> i32 {
     let needle = needle.as_bytes();
 
     for i in 0..haystack.len() {
-        if equal_here(&needle, &haystack[i..]) {
+        if equal_here(needle, &haystack[i..]) {
             return i as i32;
         }
     }

@@ -27,7 +27,7 @@ pub fn merge(nums1: &mut Vec<i32>, m: i32, nums2: &mut Vec<i32>, n: i32) {
                 }
             },
         }
-        where_to_write = where_to_write - 1;
+        where_to_write -= 1;
     }
 }
 

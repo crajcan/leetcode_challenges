@@ -88,28 +88,16 @@ mod test {
 
     #[test]
     fn test_smallest_larger_than() {
-        assert_eq!(smallest_larger_than('c', &"abc".to_string()), None);
-        assert_eq!(
-            smallest_larger_than('c', &"abcde".to_string()),
-            Some((3, 'd'))
-        );
-        assert_eq!(
-            smallest_larger_than('c', &"adcbe".to_string()),
-            Some((1, 'd'))
-        );
+        assert_eq!(smallest_larger_than('c', "abc"), None);
+        assert_eq!(smallest_larger_than('c', "abcde"), Some((3, 'd')));
+        assert_eq!(smallest_larger_than('c', "adcbe"), Some((1, 'd')));
     }
 
     #[test]
     fn test_largest_smaller_than() {
-        assert_eq!(largest_smaller_than('a', &"abc".to_string()), None);
-        assert_eq!(
-            largest_smaller_than('c', &"abcde".to_string()),
-            Some((1, 'b'))
-        );
-        assert_eq!(
-            largest_smaller_than('c', &"adcbe".to_string()),
-            Some((3, 'b'))
-        );
+        assert_eq!(largest_smaller_than('a', "abc"), None);
+        assert_eq!(largest_smaller_than('c', "abcde"), Some((1, 'b')));
+        assert_eq!(largest_smaller_than('c', "adcbe"), Some((3, 'b')));
     }
 
     #[test]

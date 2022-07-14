@@ -6,7 +6,7 @@ pub fn hamming_weight(mut n: u32) -> i32 {
             total += 1;
         }
 
-        n = n / 2;
+        n /= 2;
     }
 
     total

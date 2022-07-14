@@ -23,7 +23,7 @@ use std::rc::Rc;
 
 pub fn connect(root: &mut Option<Rc<RefCell<Node>>>) {
     match root {
-        None => return,
+        None => (),
         Some(rc) => {
             let mut root = rc.borrow_mut();
 
@@ -94,12 +94,12 @@ mod test {
         other_one.left = Some(Rc::new(RefCell::new(other_two)));
 
         assert_ne!(one, other_one);
-        let mut root = Some(Rc::new(RefCell::new(one.clone())));
+        let mut root = Some(Rc::new(RefCell::new(one)));
         // println!("{:?}", root);
         connect(&mut root);
         // println!("one: {:#?}", one);
         // println!("other_one: {:#?}", other_one);
 
-        assert_eq!(root, Some(Rc::new(RefCell::new(other_one.clone()))));
+        assert_eq!(root, Some(Rc::new(RefCell::new(other_one))));
     }
 }

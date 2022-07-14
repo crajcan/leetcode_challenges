@@ -6,17 +6,13 @@ pub fn generate_the_string(n: i32) -> String {
     match n % 2 {
         0 => [
             "a",
-            &String::from_utf8(vec![b'b'; (n - 1) as usize])
-                .unwrap()
-                .to_owned(),
+            &String::from_utf8(vec![b'b'; (n - 1) as usize]).unwrap(),
         ]
         .join(""),
         _ => [
             "a",
             "b",
-            &String::from_utf8(vec![b'c'; (n - 2) as usize])
-                .unwrap()
-                .to_owned(),
+            &String::from_utf8(vec![b'c'; (n - 2) as usize]).unwrap(),
         ]
         .join(""),
     }

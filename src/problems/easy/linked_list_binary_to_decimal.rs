@@ -43,7 +43,7 @@ mod test {
             next: next_next,
             val: 0,
         }));
-        let root = Some(Box::new(ListNode { next: next, val: 1 }));
+        let root = Some(Box::new(ListNode { next, val: 1 }));
 
         assert_eq!(get_decimal_value(root), 5);
     }

@@ -1,12 +1,12 @@
 pub fn reverse_bits(mut x: u32) -> u32 {
     (0..32).fold(0, |mut res, _| {
-        res = res * 2;
+        res *= 2;
 
         if x % 2 == 1 {
-            res = res ^ 1;
+            res ^= 1;
         }
 
-        x = x / 2;
+        x /= 2;
         res
     })
 }

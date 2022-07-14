@@ -20,7 +20,6 @@ pub fn add_island(
             add_island(grid, islands, x as usize, y as usize);
         }
     } else {
-        ()
     }
 }
 

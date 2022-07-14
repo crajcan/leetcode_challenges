@@ -3,13 +3,7 @@ pub fn kids_with_candies(candies: Vec<i32>, extra_candies: i32) -> Vec<bool> {
         Some(max) => candies
             .clone()
             .into_iter()
-            .map(|n| {
-                if n + extra_candies < *max {
-                    false
-                } else {
-                    true
-                }
-            })
+            .map(|n| n + extra_candies >= *max)
             .collect(),
         None => vec![],
     }

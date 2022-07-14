@@ -3,7 +3,7 @@ pub fn running_sum(nums: Vec<i32>) -> Vec<i32> {
     let mut sum = 0;
 
     for i in 0..res.len() {
-        sum = sum + nums[i];
+        sum += nums[i];
         res[i] = sum;
     }
 
@@ -11,16 +11,17 @@ pub fn running_sum(nums: Vec<i32>) -> Vec<i32> {
 }
 
 pub fn functional_running_sum(nums: Vec<i32>) -> Vec<i32> {
-    nums.into_iter()
-        .fold(vec![], |sums, num| {
-            [
-                &sums[..],
-                &[num + match sums.last() {
+    nums.into_iter().fold(vec![], |sums, num| {
+        [
+            &sums[..],
+            &[num
+                + match sums.last() {
                     Some(prior_sum) => *prior_sum,
                     None => 0,
                 }],
-            ].concat()
-        })
+        ]
+        .concat()
+    })
 }
 
 #[cfg(test)]

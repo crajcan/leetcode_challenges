@@ -23,9 +23,7 @@ pub fn rob_helper(nums: &[i32], seen_totals: &mut Vec<i32>, i: usize) -> i32 {
 
                     res
                 }
-                res => {
-                    res
-                }
+                res => res,
             };
 
             std::cmp::max(first_plus_total_after_two, second_plus_total_after_three)
