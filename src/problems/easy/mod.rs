@@ -69,6 +69,7 @@ pub mod reduce_to_zero;
 pub mod remove_duplicates;
 pub mod remove_duplicates_from_sorted_list;
 pub mod remove_element;
+pub mod remove_linked_list_elements;
 pub mod remove_outer_parentheses;
 pub mod reverse_bits;
 pub mod reverse_linked_list;

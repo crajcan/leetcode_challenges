@@ -5,8 +5,8 @@ pub fn apply_backspaces(s: &[u8]) -> Vec<u8> {
         } else {
             new_s.pop();
         }
-        
-        new_s 
+
+        new_s
     })
 }
 
@@ -20,9 +20,18 @@ mod test {
 
     #[test]
     fn test_backspace_compare() {
-        assert_eq!(backspace_compare("ab#c".to_string(), "ad#c".to_string()), true);
-        assert_eq!(backspace_compare("ab##".to_string(), "c#d#".to_string()), true);
-        assert_eq!(backspace_compare("a##c".to_string(), "#a#c".to_string()), true);
+        assert_eq!(
+            backspace_compare("ab#c".to_string(), "ad#c".to_string()),
+            true
+        );
+        assert_eq!(
+            backspace_compare("ab##".to_string(), "c#d#".to_string()),
+            true
+        );
+        assert_eq!(
+            backspace_compare("a##c".to_string(), "#a#c".to_string()),
+            true
+        );
         assert_eq!(backspace_compare("a#c".to_string(), "b".to_string()), false);
     }
 }

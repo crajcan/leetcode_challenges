@@ -36,6 +36,7 @@ pub fn delete_helper(head: Option<Box<ListNode>>, previous: Option<i32>) -> Opti
 pub fn delete_duplicates(head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     delete_helper(head, None)
 }
+
 pub fn delete_duplicates_iterative(mut head: Option<Box<ListNode>>) -> Option<Box<ListNode>> {
     head.as_ref()?;
     let mut current_node = head.as_mut().unwrap();
