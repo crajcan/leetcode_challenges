@@ -147,3 +147,15 @@ nums_without_num.retain(|&n| n != *num);
 ```
 nums.iter().collect::<HashSet<_>>()
 ```
+
+1. Modify a `HashMap` entry or insert a default if none exists:
+
+```
+*uniq.entry(num).or_insert(0) += 1;
+```
+
+1. Modify a `HashMap` entry you know exists
+
+```
+uniq.entry(num).and_modify(|v| *v -= 1);
+``` 
