@@ -95,4 +95,5 @@ pub mod surface_area_3d;
 pub mod to_lower_case;
 pub mod two_sum;
 pub mod valid_parentheses;
+pub mod word_pattern;
 pub mod xor_operation;
