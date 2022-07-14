@@ -1,4 +1,5 @@
 pub mod add_binary;
+pub mod backspace_compare;
 pub mod balanced_binary_tree;
 pub mod balanced_string_split;
 pub mod binary_search;
