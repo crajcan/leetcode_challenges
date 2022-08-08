@@ -37,7 +37,7 @@ pub fn is_balanced_helper(root: Option<Rc<RefCell<TreeNode>>>) -> Option<i32> {
                     if (left_height - right_height).abs() > 1 {
                         None
                     } else {
-                        Some(1 + *[left_height, right_height].iter().max().unwrap())
+                        Some(1 + std::cmp::max(left_height, right_height))
                     }
                 }
             }

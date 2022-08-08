@@ -159,3 +159,31 @@ nums.iter().collect::<HashSet<_>>()
 ```
 uniq.entry(num).and_modify(|v| *v -= 1);
 ``` 
+
+1. Convert a str of binary to an int: 
+
+```
+let a_int = u128::from_str_radix(&a, 2).expect("Not a binary number!");
+```
+
+1. Using `#fold` usually requires your accumulator is mutable:
+
+```
+s.chars().fold("".to_string(), |mut buffer, c| { 
+```
+
+1. Insert into middle of vector and shift prior values right: 
+
+```
+target.insert(i as usize, 42);
+```
+
+1. gsub string segments:
+
+```
+address.replace(".", "[.]")
+```
+
+1. i32 to char
+
+(((code + 65)) as u8) as char)

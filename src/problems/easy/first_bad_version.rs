@@ -8,29 +8,23 @@ impl Solution {
     }
 
     pub fn first_bad_version(&self, n: i32) -> i32 {
-        let mut lo = 0;
-        let mut hi = n;
-
-        while lo <= hi {
+	    let mut lo = 0;
+        let mut hi = n; 
+        
+        while lo < hi {
             let mid = lo + ((hi - lo) / 2);
-
-            let mid_is_bad = self.is_bad_version(mid);
-            match mid_is_bad {
-                true => {
-                    if mid == 1 {
-                        return mid;
-                    }
-                    if !self.is_bad_version(mid - 1) {
-                        return mid;
-                    }
-
-                    hi = mid;
-                }
-                false => lo = mid + 1,
+            println!("lo: {}, mid: {}, hi: {}", lo, mid, hi);
+            
+            println!("left, right: {:?}", (self.is_bad_version(mid), self.is_bad_version(mid + 1)));
+            match (self.is_bad_version(mid), self.is_bad_version(mid + 1)) {
+                (false, true) => return mid + 1,
+                (false, false) => lo = mid + 1,
+                (true, true) => hi = mid,
+                (true, false) => panic!("invalid state")
             }
         }
-
-        -1
+        
+        -1 
     }
 }
 

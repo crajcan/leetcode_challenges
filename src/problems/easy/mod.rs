@@ -1,23 +1,23 @@
-pub mod add_binary;
-pub mod backspace_compare;
-pub mod balanced_binary_tree;
-pub mod balanced_string_split;
-pub mod binary_search;
-pub mod busy_student;
-pub mod climb_stairs;
-pub mod contains_duplicate;
-pub mod count_good_triplets;
-pub mod count_negatives;
-pub mod create_target_array;
-pub mod contains_nearby_duplicate;
-pub mod decompress_rl_elist;
-pub mod defang_ip;
-pub mod destination_city;
-pub mod diagonal_sum;
-pub mod excel_sheet_column;
-pub mod excel_sheet_column_number;
-pub mod find_numbers_with_even_length;
-pub mod first_bad_version;
+pub mod add_binary;                         //
+pub mod backspace_compare;                  // 
+pub mod balanced_binary_tree;               // calculate Some(height) if balanced else None
+pub mod balanced_string_split;              // 
+pub mod binary_search;                      // lo = mid + 1 (the upper bound is exclusive, but for the lower we also want the new range not to include mid) 
+pub mod busy_student;                       //
+pub mod climb_stairs;                       //
+pub mod contains_duplicate;                 // 
+pub mod count_good_triplets;                // you have to just brute force this 
+pub mod count_negatives;                    // 
+pub mod create_target_array;                // vector.insert(index, elem) will insert and shift the old values right
+pub mod contains_nearby_duplicate;          // store where you last saw each value in the array then check if the next occurance is soon enough 
+pub mod decompress_rl_elist;                //
+pub mod defang_ip;                          //
+pub mod destination_city;                   // 
+pub mod diagonal_sum;                       //
+pub mod excel_sheet_column;                 // subtract 1 before dividing the handle off by one error
+pub mod excel_sheet_column_number;          // subtract 64 to get i32 from char
+pub mod find_numbers_with_even_length;      // 
+pub mod first_bad_version;                  //
 pub mod flip_and_invert_image;
 pub mod flood_fill;
 pub mod freq_alphabets;
