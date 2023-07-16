@@ -18,11 +18,11 @@ pub mod excel_sheet_column;                 // subtract 1 before dividing the ha
 pub mod excel_sheet_column_number;          // subtract 64 to get i32 from char
 pub mod find_numbers_with_even_length;      // 
 pub mod first_bad_version;                  //
-pub mod flip_and_invert_image;
-pub mod flood_fill;
-pub mod freq_alphabets;
-pub mod generate_the_string;
-pub mod identical_pairs;
+pub mod flip_and_invert_image;              //
+pub mod flood_fill;                         // change all neighbors of start_color to new_color
+pub mod freq_alphabets;                     //
+pub mod generate_the_string;                // if it's even, just one a and n -1 bs, if it's odd, just one a, one b, n-2 cs
+pub mod identical_pairs;                    // the number of possible pairs in a set is (n(n-1))/2
 pub mod increasing_decreasing_string;
 pub mod inorder_traversal;
 pub mod intersection_of_linked_lists;
@@ -93,6 +93,7 @@ pub mod subtract_product_and_sum;
 pub mod sum_odd_length_subarrays;
 pub mod sum_zero;
 pub mod surface_area_3d;
+pub mod third_maximum_number;
 pub mod to_lower_case;
 pub mod two_sum;
 pub mod valid_parentheses;

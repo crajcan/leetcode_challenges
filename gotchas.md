@@ -4,7 +4,7 @@
 1. Indexing into a `String`:
 
 ```
-let c = s.as_bytes(get(i));
+let c = s.as_bytes().get(i);
 ```
 
 ### Note that `s.chars()` returns a `Chars` iterator and cannot be used for indexing the same way
