@@ -1,42 +1,28 @@
 pub fn third_max(nums: Vec<i32>) -> i32 {
-    let mut maxes = vec![];
-    println!("maxes: {:?}", maxes);
+    use std::collections::{BinaryHeap};
 
+    let mut maxes = BinaryHeap::new();
     for num in nums {
-        println!("maxes: {:?}", maxes);
-        println!("maxes.len(): {}", maxes.len());
-        println!("num: {}", num);
+        maxes.push(num);
+    } 
 
-        if maxes.len() == 0 {
-            maxes.push(num);
-        } else {
-            if maxes.len() < 3 || num > maxes[maxes.len() - 1] {
-                insert(&mut maxes, num);
+    let mut top_three = vec![];
+
+    while top_three.len() < 3 {
+        if let Some(next_max) = maxes.pop() {
+            if !top_three.contains(&next_max) {
+                top_three.push(next_max);
             }
+        } else {
+            break;
         }
     }
 
-    if maxes.len() < 3 {
-        maxes[0] 
+    if top_three.len() < 3 {
+        top_three[0]
     } else {
-        maxes[maxes.len() - 1]
+        top_three[2]
     }
-}
-
-fn insert(maxes: &mut Vec<i32>, num: i32) {
-    for i in 0..maxes.len() {
-        if num == maxes[i] {
-            return;
-        }
-
-        if num > maxes[i] {
-            maxes.insert(i, num);
-            maxes.truncate(3);
-            return;
-        }
-    }
-    
-    maxes.push(num) 
 }
 
 #[cfg(test)]
