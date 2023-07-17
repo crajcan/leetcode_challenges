@@ -23,6 +23,7 @@ pub mod flood_fill;                         // change all neighbors of start_col
 pub mod freq_alphabets;                     //
 pub mod generate_the_string;                // if it's even, just one a and n -1 bs, if it's odd, just one a, one b, n-2 cs
 pub mod identical_pairs;                    // the number of possible pairs in a set is (n(n-1))/2
+pub mod implement_stack_using_queues;
 pub mod increasing_decreasing_string;
 pub mod inorder_traversal;
 pub mod intersection_of_linked_lists;
