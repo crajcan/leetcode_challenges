@@ -1,4 +1,5 @@
 pub mod add_binary;                         //
+pub mod average_binary_tree_levels;
 pub mod backspace_compare;                  // 
 pub mod balanced_binary_tree;               // calculate Some(height) if balanced else None
 pub mod balanced_string_split;              // 
@@ -28,6 +29,7 @@ pub mod increasing_decreasing_string;
 pub mod inorder_traversal;
 pub mod intersection_of_linked_lists;
 pub mod intersection_of_two_arrays;
+pub mod invert_binary_tree;
 pub mod is_happy_number;
 pub mod is_isomorphic;
 pub mod is_palindrome;
@@ -68,6 +70,7 @@ pub mod plus_one;
 pub mod postorder_traversal;
 pub mod preorder_traversal;
 pub mod range_sum_bst;
+pub mod ransom_note;
 pub mod reduce_to_zero;
 pub mod remove_duplicates;
 pub mod remove_duplicates_from_sorted_list;
@@ -93,6 +96,7 @@ pub mod subtract;
 pub mod subtract_product_and_sum;
 pub mod sum_odd_length_subarrays;
 pub mod sum_zero;
+pub mod summary_ranges;
 pub mod surface_area_3d;
 pub mod third_maximum_number;
 pub mod to_lower_case;

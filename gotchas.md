@@ -148,6 +148,12 @@ nums_without_num.retain(|&n| n != *num);
 nums.iter().collect::<HashSet<_>>()
 ```
 
+1. insert (or overwrite) a hashmap entry
+
+```
+letters.insert(c, count - 1);
+```
+
 1. Modify a `HashMap` entry or insert a default if none exists:
 
 ```
@@ -160,7 +166,14 @@ nums.iter().collect::<HashSet<_>>()
 uniq.entry(num).and_modify(|v| *v -= 1);
 ``` 
 
-1. Convert a str of binary to an int: 
+1. get a mutable reference to a hashmap entry
+
+```
+let n = uniq.get_mut(&c);
+n -= 1;
+```
+
+2. Convert a str of binary to an int: 
 
 ```
 let a_int = u128::from_str_radix(&a, 2).expect("Not a binary number!");
@@ -181,9 +194,27 @@ target.insert(i as usize, 42);
 1. gsub string segments:
 
 ```
-address.replace(".", "[.]")
+let address = "192.168.0.0".to_string();
+let foo = address.replace(".", "[.]");
+// 192[.]168[.]0[.]0
 ```
 
 1. i32 to char
 
 (((code + 65)) as u8) as char)
+
+1. char to byte using byte string literal
+
+```
+let leading: Vec<u8> = "foobar".to_string().as_bytes();
+leading.contains(&b'-');
+```
+
+1. Min and max int:
+
+```
+let min = std::i32::MIN;
+// -2147483648
+let max = std::i32::MAX;
+// 2147483647
+```
